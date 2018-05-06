@@ -1,6 +1,7 @@
 import React from "react";
 import MovieItem from "./MovieItem";
 import { API_KEY_3 } from "../utils";
+import MoviesList from "./MoviesList";
 
 function LikeCounts({ likeCounts }) {
   return <p>Количество лайков: {likeCounts} </p>;
@@ -61,23 +62,7 @@ class App extends React.Component {
               <LikeCounts likeCounts={likeCounts} />
             </div>
           </div>
-          <div className="row">
-            {this.state.isLoading ? (
-              <p>...Downloading</p>
-            ) : (
-              movies.map((movie, index) => {
-                return (
-                  <div key={index} className="col-6 mb-4">
-                    <MovieItem
-                      item={movie}
-                      increaseLike={this.increaseLike}
-                      decreaseLike={this.decreaseLike}
-                    />
-                  </div>
-                );
-              })
-            )}
-          </div>
+          <MoviesList />
         </div>
       </div>
     );
