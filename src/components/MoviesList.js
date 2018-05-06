@@ -39,6 +39,10 @@ class MoviesList extends Component {
     console.log("new rops", nextProps);
 
     if (nextProps.type != this.props.type) {
+      this.setState({
+        isLoading: true
+      });
+
       const link = `https://api.themoviedb.org/3/movie/${
         this.props.type
       }?api_key=${API_KEY_3}&language=en-US&region=ru&page=1`;
