@@ -35,7 +35,7 @@ class MoviesList extends Component {
 
   render() {
     const { movies, isLoading } = this.state;
-    // console.log("MoviListRender");
+    // console.log(this.props);
     return (
       <div className="row">
         {isLoading ? (

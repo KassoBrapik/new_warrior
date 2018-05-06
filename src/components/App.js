@@ -37,6 +37,25 @@ class App extends React.Component {
     });
   };
 
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("oldstate ShouldComp");
+    console.log("oldstate ShouldComp", this.state);
+    console.log("newstate ShouldComp", nextState);
+    return true;
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log("oldstate WillUpdate");
+    console.log("oldstate WillUpdate", this.state);
+    console.log("newstate WillUpdate", nextState);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("oldstate DidUpdate");
+    console.log("oldstate DidUpdate", prevProps);
+    console.log("newstate DidUpdate", prevState);
+  }
+
   render() {
     const { likeCounts } = this.state;
     // console.log("AppRender");
