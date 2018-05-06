@@ -30,7 +30,7 @@ class MoviesList extends Component {
             isLoading: false
           });
         });
-    }, 3000);
+    }, 1000);
   }
 
   render() {

@@ -1,6 +1,7 @@
 import React from "react";
 
 import MoviesList from "./MoviesList";
+import MoviesTabs from "./MoviesTabs";
 
 function LikeCounts({ likeCounts }) {
   return <p>Количество лайков: {likeCounts} </p>;
@@ -37,8 +38,13 @@ class App extends React.Component {
       <div>
         <div className="container">
           <div className="row">
-            <div className="col-12">
+            <div className="col-12 mb-4">
               <LikeCounts likeCounts={likeCounts} />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-12 mb-4">
+              <MoviesTabs type={this.state.type} />
             </div>
           </div>
           <MoviesList
