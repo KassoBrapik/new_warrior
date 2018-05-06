@@ -19,10 +19,14 @@ class MoviesTabs extends Component {
           </div>
         </li>
         <li className="nav-item">
-          <div className="nav-link">Upcoming</div>
+          <div className={type === "upcoming" ? "nav-link active" : "nav-link"}>
+            Upcoming
+          </div>
         </li>
         <li className="nav-item">
-          <div className="nav-link">Popular</div>
+          <div className={type === "popular" ? "nav-link active" : "nav-link"}>
+            Popular
+          </div>
         </li>
       </ul>
     );
