@@ -31,6 +31,10 @@ class App extends React.Component {
     });
   };
 
+  changeTab = tab => {
+    console.log(tab);
+  };
+
   render() {
     const { likeCounts } = this.state;
     // console.log("AppRender");
@@ -44,7 +48,7 @@ class App extends React.Component {
           </div>
           <div className="row">
             <div className="col-12 mb-4">
-              <MoviesTabs type={this.state.type} />
+              <MoviesTabs type={this.state.type} changeTab={this.changeTab} />
             </div>
           </div>
           <MoviesList
