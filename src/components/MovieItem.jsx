@@ -33,7 +33,7 @@ export default class MovieItem extends React.Component {
         return null;
       }
     };
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div className="card">
         <img
