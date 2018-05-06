@@ -33,9 +33,37 @@ class MoviesList extends Component {
     }, 1000);
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log("WillReceiveProps");
+    console.log("old rops", this.props);
+    console.log("new rops", nextProps);
+
+    if (nextProps.type != this.props.type) {
+      const link = `https://api.themoviedb.org/3/movie/${
+        this.props.type
+      }?api_key=${API_KEY_3}&language=en-US&region=ru&page=1`;
+
+      setTimeout(() => {
+        fetch(link)
+          .then(response => {
+            // console.log("response", response);
+            return response.json();
+          })
+          .then(data => {
+            // console.log("data", data.results);
+            this.setState({
+              movies: data.results,
+              isLoading: false
+            });
+          });
+      }, 1000);
+    }
+  }
+
   render() {
     const { movies, isLoading } = this.state;
-    // console.log(this.props);
+    console.log("render", this.props.type);
+
     return (
       <div className="row">
         {isLoading ? (
