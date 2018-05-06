@@ -32,7 +32,9 @@ class App extends React.Component {
   };
 
   changeTab = tab => {
-    console.log(tab);
+    this.setState({
+      type: tab
+    });
   };
 
   render() {
