@@ -1,6 +1,5 @@
 import React from "react";
-import MovieItem from "./MovieItem";
-import { API_KEY_3 } from "../utils";
+
 import MoviesList from "./MoviesList";
 
 function LikeCounts({ likeCounts }) {
@@ -12,9 +11,8 @@ class App extends React.Component {
     super();
 
     this.state = {
-      movies: [],
       likeCounts: 0,
-      isLoading: true
+      type: "now_playing"
     };
   }
 
@@ -32,28 +30,9 @@ class App extends React.Component {
     });
   };
 
-  componentDidMount() {
-    const link = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY_3}&language=en-US&region=ru&page=1`;
-
-    setTimeout(() => {
-      fetch(link)
-        .then(response => {
-          // console.log("response", response);
-          return response.json();
-        })
-        .then(data => {
-          // console.log("data", data.results);
-          this.setState({
-            movies: data.results,
-            isLoading: false
-          });
-        });
-    }, 3000);
-  }
-
   render() {
-    const { movies, likeCounts } = this.state;
-    console.log("render");
+    const { likeCounts } = this.state;
+    // console.log("AppRender");
     return (
       <div>
         <div className="container">
@@ -62,7 +41,11 @@ class App extends React.Component {
               <LikeCounts likeCounts={likeCounts} />
             </div>
           </div>
-          <MoviesList />
+          <MoviesList
+            type={this.state.type}
+            increaseLike={this.increaseLike}
+            decreaseLike={this.decreaseLike}
+          />
         </div>
       </div>
     );
